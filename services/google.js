@@ -39,6 +39,7 @@ export async function createFiles(parentId, name, files) {
 
     if (Array.isArray(files)) {
       for (const file of files) {
+        console.log("file", file.originalname);
         const requestBody = {
           name: file.originalname,
           fields: "id",

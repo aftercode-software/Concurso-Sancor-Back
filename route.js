@@ -20,12 +20,26 @@ export default async function handler(req, res) {
       }
 
       const formData = req.body;
+      console.log("FormData:", formData);
+
       const files = req.files;
+      console.log("Files:", files);
 
       // Combine form data and files
       let data = { ...formData };
+
+      // Group files by fieldname
       files.forEach((file) => {
-        data[file.fieldname] = file;
+        if (data[file.fieldname]) {
+          // If we already have a file for this field, convert to array if not already
+          if (!Array.isArray(data[file.fieldname])) {
+            data[file.fieldname] = [data[file.fieldname]];
+          }
+          data[file.fieldname].push(file);
+        } else {
+          // First file for this field
+          data[file.fieldname] = file;
+        }
       });
 
       console.log("Converted FormData to Object:", data);
