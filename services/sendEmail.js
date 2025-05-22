@@ -90,7 +90,7 @@ Presentación sujeta a verificación y control final de lo acompañado por parte
 Por favor, conserve este correo como comprobante de su presentación. Si tiene alguna consulta, no dude en contactarnos.
 
 Atentamente,
-El equipo de Concursos Sancor Seguros.
+El equipo de Concursos Sancor.
 `;
 
   // await sendEmail(
